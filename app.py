@@ -79,7 +79,7 @@ def main() -> None:
     agent_type = st.sidebar.selectbox("Decision-maker", ["Behavioural", "Bounded-rational", "Rational"], index=0)
     user_profile = st.sidebar.selectbox("User distribution", ["Mixed", "Near threshold", "Far from threshold"], index=0)
 
-    ai_enabled = st.sidebar.toggle("AI advisor enabled", value=True)
+    ai_enabled = st.sidebar.checkbox("AI advisor enabled", value=True)
     reactance = st.sidebar.slider("Reactance (reject AI under overload)", 0.0, 1.5, 0.6, 0.1, disabled=not ai_enabled)
 
     n_users = st.sidebar.slider("Simulated users", 200, 6000, 1500, 200)
