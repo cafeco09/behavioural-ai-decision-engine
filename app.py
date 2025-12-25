@@ -185,10 +185,12 @@ def choose_with_ai(
     u_f = expected_utility(fallback, scenario, tier, points, trust_ai, autonomy_pref, ai_used=False)
     u_r = expected_utility(recommended, scenario, tier, points, trust_ai, autonomy_pref, ai_used=True)
 
-    autonomy_cost = reactance * 0.35 * scenario.autonomy_pressure * (0.25 + autonomy_pref) * (1.0 - trust_ai)
+    autonomy_cost = reactance * 0.25 * scenario.autonomy_pressure * (0.25 + autonomy_pref) * (1.0 - trust_ai)
+
     u_r_adj = u_r - autonomy_cost
 
-    switch_margin = 0.18 + 0.10 * scenario.overload
+    switch_margin = 0.12 + 0.08 * scenario.overload
+
     if trust_ai < 0.12 and scenario.overload >= 0.8 and rng.random() < 0.65:
         return fallback, False
 
