@@ -675,32 +675,11 @@ def main():
     )
 
     st.caption(
-        "Interpretation hint: if Δcompletion > 0 but Δregret_total also > 0, AI increases action but may worsen decision quality "
-        "(often under overload + high reactance / low trust)."
-
-        df[
-            [
-                "scenario",
-                "tier",
-                "points",
-                "day",
-                "advisor_action",
-                "final_action",
-                "followed_ai",
-                "acted",
-                "new_tier",
-                "effort",
-                "regret",
-            ]
-        ]
-        .sample(min(30, len(df)), random_state=int(seed))
-        .reset_index(drop=True)
-)
-st.caption(
-        "If completion is still too high, increase reactance and/or switch to 'Offer Overload' scenarios."
+        "Interpretation hint: positive delta completion with positive delta regret suggests AI induces action but not always quality."
     )
 
 
 if __name__ == "__main__":
     main()
+
 
