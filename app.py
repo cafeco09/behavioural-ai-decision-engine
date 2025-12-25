@@ -122,6 +122,7 @@ def main():
 
     ai_enabled = st.sidebar.checkbox("AI advisor enabled", value=True)
 
+<<<<<<< HEAD
     reactance = st.sidebar.slider(
         "Reactance (reject AI under overload)",
         0.0, 1.5, 0.6, 0.1,
@@ -132,6 +133,9 @@ def main():
         "Simulated users",
         200, 6000, 1500, 200
     )
+    ai_enabled = st.sidebar.checkbox("AI advisor enabled", value=True)
+    reactance = st.sidebar.slider("Reactance (reject AI under overload)", 0.0, 1.5, 0.6, 0.1, disabled=not ai_enabled)
+
 
     seed = st.sidebar.number_input(
         "Random seed",
@@ -289,7 +293,18 @@ def main():
     st.subheader("Sample decisions")
 
     st.dataframe(
+
         df.sample(min(30, len(df)), random_state=int(seed)).reset_index(drop=True)
+
+        df[[
+            "scenario", "tier", "points", "day",
+            "advisor_action", "final_action",
+            "followed_ai", "acted", "new_tier",
+            "effort", "regret"
+        ]].sample(min(30, len(df)), random_state=int(seed)).reset_index(drop=True),
+     
+
+>>>>>>> Add explicit inaction and improve behavioural simulation
     )
 
     st.caption(
