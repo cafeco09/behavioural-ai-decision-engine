@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying paper."
+type: software
+title: "Behavioural AI Decision Engine: Explainability Buffer Simulation"
+authors:
+  - family-names: Dixit
+    given-names: Anshul
+year: 2025
+license: MIT
+repository-code: "https://github.com/cafeco09/behavioural-ai-decision-engine"
